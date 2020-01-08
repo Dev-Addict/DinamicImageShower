@@ -38,8 +38,8 @@ class App extends React.Component {
         } else if(this.state.viewState === 'nothing to show') {
             return (
                 <div className="center">
-                    <i style={{fontSize: '10px'}} className="close icon loading circular inverted blue" id="color-black"></i>
-                    <i className="bottom right corner blue-color" style={{color: '#3185fc'}}>nothing to show</i>
+                    <i style={{fontSize: '20px'}} className="close icon loading inverted blue-color"></i>
+                    <i className="bottom right corner blue-color">nothing to show</i>
                 </div>
             );
         } else {
