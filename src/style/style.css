@@ -80,10 +80,65 @@ body {
     transform: translateX(-50%);
     border-bottom: solid #ccc 5px;
     padding-bottom: 10px;
-    /* border-radius: 20%; */
 }
 .img-alt{
     left: 0;
     color: #fff;
     text-align: justify;
+}
+
+.notice {
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    width: 400px;
+    padding: 12px;
+    z-index: 999999;
+    display: inline;
+    border: solid #ccc 2px;
+}
+
+.green-notice {
+    background-color: #50c878;
+}
+
+.red-notice {
+    background-color: #f20;
+}
+
+.blue-notice {
+    background-color: aquamarine;
+}
+
+.yellow-notice {
+    background-color: #fcd250;
+}
+
+.notice-message {
+    color: #fff;
+    display: inline;
+    float: left;
+    border-right: solid #fff 2px;
+    padding-right: 5px;
+}
+
+.close-notice {
+    float: right;
+    color: #fff;
+}
+
+.hide-notice {
+    animation-name: hide-notice;
+    animation-duration: 1s;
+    opacity: 0;
+}
+
+@keyframes hide-notice {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
