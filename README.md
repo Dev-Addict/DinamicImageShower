@@ -1,3 +1,10 @@
+before using this app you need to go to unsplash developers and register they will get you an access key copy access key go to src/api/unsplash.js and paste it instead of your-access-key in line 6. then you are free to try it.
+
+
+## what is this?
+
+this is an react.js application to search for images in unsplash<br /> <br />
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

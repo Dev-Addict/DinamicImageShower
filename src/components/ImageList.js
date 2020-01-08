@@ -15,9 +15,6 @@ class ImageList extends React.Component {
                 
             );
         });
-        console.log('image list');
-        console.log(images);
-        console.log(props.imageList);
         this.state = {images:  images};
     }
 

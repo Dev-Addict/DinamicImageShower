@@ -16,7 +16,6 @@ class App extends React.Component {
     }
 
     async onSearchSubmit(searchValue) {
-        console.log("search value submitted to the app and is " + searchValue);
         this.setState({searchValue: searchValue});
         this.setState({viewState: 'loading'});
         const request = await unsplash.get('/search/photos', {
@@ -28,7 +27,6 @@ class App extends React.Component {
         if(request.data.results.length === 0) {
             this.setState({viewState: 'nothing to show'});
         }
-        console.log(request.data.results);
     }
 
     showState(){
@@ -57,9 +55,7 @@ class App extends React.Component {
         }
     }
 
-    //override
     render() {
-        console.log(this.state);
         return (
             <div className="ui container" style={{marginTop: '10px'}} id="bg-black">
                 {this.notice()}
