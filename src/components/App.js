@@ -20,11 +20,10 @@ class App extends React.Component {
                 query: searchValue
             },
         });
-        this.setState({viewState: 'ready'});
+        this.setState({viewState: 'ready' , images: request.data.results});
         if(request.data.results.length === 0) {
             this.setState({viewState: 'nothing to show'});
         }
-        this.setState({images: request.data.results});
         console.log(request.data.results);
     }
 
@@ -43,7 +42,7 @@ class App extends React.Component {
                 </div>
             );
         } else {
-            return <ImageList imageList={this.state.imageList}/>;
+            return <ImageList imageList={this.state.images}/>;
         }
     }
 

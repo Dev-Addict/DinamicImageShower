@@ -63,3 +63,27 @@ body {
 .blue-color {
     color: #3500d3 !important;
 }
+
+.image {
+    border: solid #3500d3 3px;
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+}
+
+.post{
+    width: 80%;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom: solid #ccc 5px;
+    padding-bottom: 10px;
+    /* border-radius: 20%; */
+}
+.img-alt{
+    left: 0;
+    color: #fff;
+    text-align: justify;
+}

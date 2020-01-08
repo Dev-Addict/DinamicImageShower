@@ -4,11 +4,25 @@ import  '../style/style.css';
 class ImageList extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {imageList:  props.imageList};
+        let key = -1;
+        const images = props.imageList.map(image => {
+            key++;
+            return (
+                <div className="post">
+                    <img className="image" src={image.urls.full} key={key}/>
+                    <span className="img-alt">{image.alt_description}</span>
+                </div>
+                
+            );
+        });
+        console.log('image list');
+        console.log(images);
+        console.log(props.imageList);
+        this.state = {images:  images};
     }
 
     render(){
-        return <div></div>;
+        return <div className="ui segment bg-black white-border">{this.state.images}</div>;
     }
 }
 
