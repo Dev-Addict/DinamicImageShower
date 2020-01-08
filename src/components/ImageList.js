@@ -19,7 +19,7 @@ class ImageList extends React.Component {
     }
 
     render(){
-        return <div className="ui segment bg-black white-border">{this.state.images}</div>;
+        return <div className="image-list">{this.state.images}</div>;
     }
 }
 
