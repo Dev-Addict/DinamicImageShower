@@ -1,4 +1,4 @@
-before using this app you need to go to unsplash developers and register they will get you an access key copy access key go to src/api/unsplash.js and paste it instead of your-access-key in line 6. then you are free to try it.
+before using this app you need to go to unsplash developers and register they will get you an access key copy access key go to src/api/unsplash.js and paste it instead of my access key in line 6. then you are free to try it.
 
 
 ## what is this?
