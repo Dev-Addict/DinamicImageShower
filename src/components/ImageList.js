@@ -1,4 +1,5 @@
 import React from 'react';
+import ImageCard from './ImageCard';
 import  '../style/style.css';
 
 class ImageList extends React.Component {
@@ -7,13 +8,7 @@ class ImageList extends React.Component {
         let key = -1;
         const images = props.imageList.map(image => {
             key++;
-            return (
-                <div className="post">
-                    <img className="image" src={image.urls.full} key={key}/>
-                    <span className="img-alt">{image.alt_description}</span>
-                </div>
-                
-            );
+            return <ImageCard image={image} key={key} />;
         });
         this.state = {images:  images};
     }

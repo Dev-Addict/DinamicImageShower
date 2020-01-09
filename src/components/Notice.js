@@ -14,7 +14,7 @@ class Notice extends React.Component {
                     <div className={`${this.state.noticeType}-notice notice`}>
                         <div className="notice-message">{this.state.message}</div>
                         <div className="close-notice">
-                            <i class="close icon" onClick={event => this.setState({shouldShow: false})}></i>
+                            <i className="close icon" onClick={event => this.setState({shouldShow: false})}></i>
                         </div>
                     </div>
             );
@@ -23,7 +23,7 @@ class Notice extends React.Component {
             <div className={`${this.state.noticeType}-notice notice hide-notice`}>
                 <div className="notice-message">{this.state.message}</div>
                 <div className="close-notice">
-                    <i class="close icon" onClick={event => this.setState({shouldShow: false})}></i>
+                    <i className="close icon" onClick={event => this.setState({shouldShow: false})}></i>
                 </div>
             </div>
         );
