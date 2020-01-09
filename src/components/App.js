@@ -11,22 +11,53 @@ class App extends React.Component {
 
     constructor(props){
         super();
-        this.state = {searchValue: '', viewState: 'nothing to show', images: []};
+        this.state = {searchValue: '', viewState: 'nothing to show', images: [], page: 1};
         this.onSearchSubmit = this.onSearchSubmit.bind(this);
+        this.goToPrevPage = this.goToPrevPage.bind(this);
+        this.goToNextPage = this.goToNextPage.bind(this);
     }
 
     async onSearchSubmit(searchValue) {
+        if(searchValue != this.state.searchValue) {
+            this.setState({page: 1});
+        }
         this.setState({searchValue: searchValue});
         this.setState({viewState: 'loading'});
         const request = await unsplash.get('/search/photos', {
             params: {
-                query: searchValue
+                query: searchValue,
+                per_page: 20,
+                page: this.state.page
             },
         });
         this.setState({viewState: 'ready' , images: request.data.results});
         if(request.data.results.length === 0) {
             this.setState({viewState: 'nothing to show'});
         }
+    }
+    
+    prevButton() {
+        let isEnabled = this.state.page !== 1;
+        return (
+            <button className={`ui button ${isEnabled?'enabled':'disabled'} page-controller-button animated controller`} style={{float:"left"}} onClick={this.goToPrevPage}>
+                <div className="hidden content">prev</div>
+                <div className="visible content">
+                    <i className="icon arrow left"></i>
+                </div>
+            </button>
+        );
+    }
+
+    nextButton() {
+        let isEnabled = this.state.images.length == 20;
+        return (
+            <button className={`ui button ${isEnabled?'enabled':'disabled'} page-controller-button animated`} style={{float: "right"}} onClick={this.goToNextPage}>
+                <div className="hidden content">next</div>
+                <div className="visible content">
+                    <i className="icon arrow right"></i>
+                </div>
+            </button>
+        );
     }
 
     showState(){
@@ -44,7 +75,16 @@ class App extends React.Component {
                 </div>
             );
         } else {
-            return <ImageList imageList={this.state.images}/>;
+            return (
+                <div>
+                    <ImageList imageList={this.state.images} />
+                    <div className="page-controller ui">
+                        {this.prevButton()}
+                        <span className="page-counter">current page : {this.state.page}</span>
+                        {this.nextButton()}
+                    </div>
+                </div>
+            );
         }
     }
 
@@ -53,6 +93,16 @@ class App extends React.Component {
             this.isTimeToShowNotice = false;
             return <Notice message="api problem using iran ip" noticeType={NoticeType.YELLOW}/>
         }
+    }
+
+    goToNextPage() {
+        this.setState({page: this.state.page + 1});
+        this.onSearchSubmit(this.state.searchValue);
+    }
+
+    goToPrevPage() {
+        this.setState({page: this.state.page - 1});
+        this.onSearchSubmit(this.state.searchValue);
     }
 
     render() {

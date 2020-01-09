@@ -14,8 +14,11 @@ class ImageCard extends React.Component {
     }
 
     setSpans() {
-        console.log("height = " + this.postRef.current.clientHeight);
-        this.setState({gridRows: Math.ceil(this.postRef.current.clientHeight + 10)});
+        try {
+            this.setState({gridRows: Math.ceil(this.postRef.current.clientHeight + 10)});
+        } catch(error) {
+            console.log(error);
+        }
     }
 
     render() {

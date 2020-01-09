@@ -160,3 +160,26 @@ div .segment {
     left: 50%;
     transform: translateX(-50%);
 }
+
+.page-controller {
+    width: 100%;
+    padding-bottom: 18px;
+    top: 100%;
+    background-color: #111;
+    text-align: center;
+    color: #ccc;
+    font-size: 20px;
+    border: solid #ccc 2px;
+}
+
+.page-controller-button {
+    background-color: #3500d3 !important;
+    color: #fff !important;
+    border-radius: 0% !important;
+    height: 100% !important;
+}
+
+.page-controller-button .disabled{
+    background-color: #3500d3aa !important;
+    color: #ffffffaa !important;
+}
